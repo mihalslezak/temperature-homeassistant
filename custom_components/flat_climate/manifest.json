@@ -1,0 +1,12 @@
+{
+  "domain": "flat_climate",
+  "name": "Flat climate",
+  "codeowners": ["@mihalslezak"],
+  "config_flow": true,
+  "documentation": "https://github.com/mihalslezak/temperature-homeassistant",
+  "issue_tracker": "https://github.com/mihalslezak/temperature-homeassistant/issues",
+  "integration_type": "hub",
+  "iot_class": "cloud_polling",
+  "requirements": [],
+  "version": "0.1.0"
+}
