@@ -30,6 +30,9 @@ POST https://<host>/api/mobile/flats/<flat id>/bacnet/write
 
 ## Install
 
+Requires **Home Assistant 2026.11 or newer** (since 0.2.0 the thermostats use HA's `native_*` temperature API;
+the old names stop working in HA 2027.11). On older HA versions, stay on 0.1.0.
+
 **HACS:** add this repository as a custom repository (type *Integration*), install **Flat climate**, restart.
 
 **Manual:** copy `custom_components/flat_climate` into your Home Assistant config folder, restart.

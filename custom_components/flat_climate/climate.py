@@ -31,7 +31,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: FlatConfigEntry,
 
 class FlatRoomClimate(FlatEntity, ClimateEntity):
     _attr_name = None  # the device name ("Room R1", rename it in HA) is the entity name
-    _attr_temperature_unit = UnitOfTemperature.CELSIUS
+    _attr_native_temperature_unit = UnitOfTemperature.CELSIUS  # native_* API: HA 2026.11+
     _attr_hvac_modes = [HVACMode.AUTO, HVACMode.OFF]  # AUTO = on: the building heats or cools to the set point
     _attr_preset_modes = [PRESET_NONE, PRESET_ECO]
     _attr_min_temp, _attr_max_temp, _attr_target_temperature_step = MIN_TEMP, MAX_TEMP, TEMP_STEP
@@ -52,11 +52,11 @@ class FlatRoomClimate(FlatEntity, ClimateEntity):
         return super().available and self._v("roomActualTemperature") is not None
 
     @property
-    def current_temperature(self) -> float | None:
+    def native_current_temperature(self) -> float | None:
         return self._v("roomActualTemperature")
 
     @property
-    def target_temperature(self) -> float | None:
+    def native_target_temperature(self) -> float | None:
         return self._v("roomSetTemperature")
 
     @property
